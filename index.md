@@ -1,7 +1,7 @@
 # Welcome to Bryan's CSE15L Page
 ## We love smoothies here
 
-[Link to LabPage](lab-report-1-week-2.html)
+[Link to LabPage](https://zhuzilibryan.github.io/cse15l-lab-reports/lab-report-1-week-2.html)
 
 *hello hello*
 
