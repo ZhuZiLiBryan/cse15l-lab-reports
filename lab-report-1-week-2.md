@@ -13,7 +13,7 @@ and download the appropriate installer for your OS.  Run and follow the installe
 * To find the address at which to remotely connect, you can locate your CSE15L account via the [Account Lookup Tool](https://sdacs.ucsd.edu/~icc/index.php).
 ![pic_3](Images/pic_3.png)
 * To begin the remote connection process, start a new instance of the terminal in VSCode via Ctrl + Shift + `.
-* Type “ssh cs15lsp22***@ieng6.ucsd.edu” where *** is given by your own account.  My account is given by _auc_, as shown in the screenshot below.  It will prompt you for your account password.  Once connected, you should see something below like this.
+* Type `ssh cs15lsp22***@ieng6.ucsd.edu` where *** is given by your own account.  My account is given by _auc_, as shown in the screenshot below.  It will prompt you for your account password.  Once connected, you should see something below like this.
 ![pic_4](Images/pic_4.png)
 
 _*Note: If this is your first connection to this server, you will get a confirmation you trust the server before you can connect.  Just confirm “yes” and you will connect successfully._
