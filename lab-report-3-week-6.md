@@ -26,3 +26,8 @@ I created a new file `scp_file.txt` and copied it over using the new username.
 
 It is seen that the new file can indeed be found on the remote server, indicating that the new functionality
 works.
+
+## Setup Github Access from ieng6
+---
+
+[Return To Home](https://zhuzilibryan.github.io/cse15l-lab-reports/)
