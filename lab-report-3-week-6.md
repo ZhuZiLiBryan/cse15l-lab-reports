@@ -45,6 +45,23 @@ A link to the commit itself is found here: [Link to Commit](https://github.com/Z
 
 ## Copy Whole Directories with `scp -r`
 
+The third trick I learned was to use a new argument, `-r`, to copy entire directories across computers via the `scp` command. 
+In the image below, I used `scp -r . cs15lsp22@ieng6.ucsd.edu:~/markdown-parse` to recursively copy all files into my ieng6 remote computer.
+![pic_7](Images/report3/pic_7.png)
+![pic_8](Images/report3/pic_8.png)
+
+As one can see above, every element in the directory was copied over (including hidden files).  To prove this, I logged in and ran the test file on the remote server.
+
+![pic_9](Images/report3/pic_9.png)
+
+All of the above can be expedited by multiple commands stringed together via `;` and specifying which commands to run on the server.  I composed a command like below:
+```
+scp -r *.java *.md lib/ brzhu:markdown-parse; ssh brzhu "cd markdown-parse; /software/CSE/oracle-java-17/jdk-17.0.1/bin/javac -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar MarkdownParse.java  MarkdownParseTest.java; /software/CSE/oracle-java-17/jdk-17.0.1/bin/java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore MarkdownParseTest"
+```
+![pic_10](Images/report3/pic_10.PNG)
+
+As you can see, upon running this command, all the necessary files were copied over, the tests were compiled, and run without the need to type multiple commands sequentially.
+
 ---
 
 [Return To Home](https://zhuzilibryan.github.io/cse15l-lab-reports/)
