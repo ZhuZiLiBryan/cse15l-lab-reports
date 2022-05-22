@@ -71,11 +71,13 @@ The other repo also resulted in a failure:
 My hypothesis was that a larger code change was necessary to fix the bug in the program.  This is because my
 implementation actually specifically searches for the last parentheses of a link, but this raises a problem when there are nested links with more parentheses and brackets.  This would cause issues such as nested links being carried on too long or links with multiple parentheses being cut short.  
 
-To amend the issue of multiple parentheses being cut short (like _a.com(())_ being turned into _a.com(()_, I made a check to see if the link that the program detected had any extra closing parentheses inside and, if so, only treat the outermost parentheses as the real closign parentheses.  The amendment is shown below:
+To amend the issue of multiple parentheses being cut short (like _a.com(())_ being turned into _a.com(()_, I made a check to see if the link that the program detected had any extra closing parentheses inside and, if so, only treat the outermost parentheses as the real closign parentheses.  In the event that there were multiple closing parentheses adjacent to each other, an increment of one was added to its index to avoid the link being cut short. The amendment is shown below:
 ![pic_18](Images/report4/pic_18.png)
 
 To amend the issue of a nested link being too long because of my implementation seeing the NEXT link as the final parentheses, I made a conditional to check the link for any nested brackets.  If these existed, I would try to extract the innermost parentheses, since that nested link is the real link.  The amendment is shown below:
 ![pic_19](Images/report4/pic_19.png)
+
+Note that there was also functionality to check for escape sequences to avoid considering brackets that had backslashes before them.
 
 ## Testing Snippet 3
 
@@ -101,7 +103,20 @@ The other repo also resulted in a failure:
 
 ### How to Improve My Code:
 
-FINISH LATER
+My hypothesis was that a large code change was needed to amend the bug.  The bug
+was a multifaceted problem; to remedy the fact that whitespace (especially newlines) would
+interfere with the link detection and that nested links within links with newlines.
+
+The first issue to deal with is the white space.  This was an easier issue to deal with, as
+all I needed to do to trim the string to be returned to get rid of the whitespace before
+and after the links with `trim()` to get rid of the newline characters.
+
+The second issue was more troublesome, and took more lines to fix.  In particular, the nested links
+within newline characters could not be detected and only the outermost parentheses (not the nested link inside) were
+detected.  After trimming the whitespace using the method described above, I found the indices of the nested brackets
+and extracted the links corresponding to the nested brackets as shown below.  This fixed the error:
+
+![pic_20](Images/report4/pic_20.png)
 
 
 
