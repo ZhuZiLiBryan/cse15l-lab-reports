@@ -64,3 +64,5 @@ foo
 bar
 ```
 would have been considered valid.  To remedy this, I would append another conditional check as I did for other situations, at the lines boxed in green.  I would add a check to see that if there was whitespace in between words by using the `indexOf()` method and seeing if there are spaces, then if there are, invalidate the current link and move on to the next part of the markdown file by increasing `currentIndex`.
+
+[Return To Home](https://zhuzilibryan.github.io/cse15l-lab-reports/)
